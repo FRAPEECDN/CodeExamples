@@ -1,0 +1,4 @@
+The Code example project is just some code from various things that I did and is not expected to compile or work
+
+The examples shows how some has some things worked
+The code was originally from Microsofr MFC applications (hence TCHAR, CString etc.)
