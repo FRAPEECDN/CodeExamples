@@ -8,11 +8,12 @@
 #include <vector>
 
 struct ExampleStruct {
-    int a;
-    std::string b;
+    int a{};
+    std::string b{};
+    ExampleStruct() {}
 };
 
-void testAB(int a, int b) {
+void testIfStatement(int a, int b) {
     if (a > b) {
         std::cout << "a is bigger than b";
     } else {
@@ -47,7 +48,7 @@ void testForloop(int a, int b) {
     for (int idx = a; idx < b; idx++) {
         std::cout << "looping " << idx << std::endl;
     }
-    std::cout << "repeat loop ended" << std::endl;
+    std::cout << "for loop ended" << std::endl;
 }
 
 int main()
@@ -110,9 +111,9 @@ int main()
 
     int noA = 78;
     int noB = 77;
-    testAB(noA, noB);
+    testIfStatement(noA, noB);
     noB = 79;
-    testAB(noA, noB);
+    testIfStatement(noA, noB);
     noA = 2;
     noB = 10;
 
@@ -185,6 +186,12 @@ int main()
     std::vector<int>::iterator itrIntCollection;
     for (itrIntCollection = intCollection.begin(); itrIntCollection < intCollection.end(); itrIntCollection++) {
         std::cout << "Collection contains : " << *itrIntCollection << std::endl;
+    }
+    std::cout << "for each example" << std::endl;
+    for (int no : intCollection)
+    {
+        std::cout << "Collection contains : " << no << std::endl;
+
     }
 
 
