@@ -7,6 +7,11 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTestExample
 {
+	struct ExampleStruct {
+		int a{};
+		std::string b{};
+		ExampleStruct() {}
+	};
 
 	int addExample(int a, int b) {
 		return a + b;
@@ -55,6 +60,13 @@ namespace UnitTestExample
 			Assert::AreNotEqual(a, b);
 			b = 3;
 			Assert::AreEqual(a, b);
+		}
+
+		TEST_METHOD(TestMethod5) {
+			std::unique_ptr<ExampleStruct> p = std::make_unique<ExampleStruct>();
+			std::string expected = "";
+			Assert::AreEqual(p->a, 0);
+			Assert::AreEqual(p->b, expected);
 		}
 	};
 }
