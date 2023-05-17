@@ -4,6 +4,24 @@
 #define __C_JOBMANAGER_H__
 
 #include "ThreadPoolWrappers.h"
+/*
+Module : ThreadPoolWrappers.h
+Purpose: Defines the interface for a set of classes to encapsulate the Windows Thread Pool APIs.
+History: PJN / 04-03-2018 1. Initial public release
+
+Copyright (c) 2018 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+
+All rights reserved.
+
+Copyright / Usage Details:
+
+You are allowed to include the source code in any product (commercial, shareware, freeware or otherwise)
+when your product is released in binary form. You are allowed to modify the source code in any way you want
+except you cannot modify the copyright details at the top of each module. If you want to distribute source
+code with your application, then you are only allowed to distribute versions released by the author. This is
+to maintain a single distribution point for the source code.
+Please visit specific website as provided for the code
+*/
 #include <vector>
 
 const DWORD	JMJOBFLAG_NONE = 0x00000000;
