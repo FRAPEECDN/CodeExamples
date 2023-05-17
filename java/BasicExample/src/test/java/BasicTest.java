@@ -1,4 +1,5 @@
 import dev.FRACDN.ExampleStruct;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,6 +8,10 @@ public class BasicTest {
 
     int addExample(int a, int b) {
         return a + b;
+    }
+
+    void generateException() throws Exception {
+        throw new Exception("This is a test");
     }
 
     @Test
@@ -30,5 +35,13 @@ public class BasicTest {
         ExampleStruct b = new ExampleStruct(6, "def");
         assertNotNull(a);
         assertNotEquals(a, b);
+    }
+
+    @Test
+    public void testMethod4() {
+        Exception thrown = Assertions.assertThrows(Exception.class, this::generateException,
+                "This is a test");
+
+        Assertions.assertEquals("This is a test", thrown.getMessage());
     }
 }

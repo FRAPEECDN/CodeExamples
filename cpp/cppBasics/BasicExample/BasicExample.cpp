@@ -1,23 +1,36 @@
 // BasicExample.cpp : This is a basic code for testing the most basic usage in c/c++
 // Currently set to use c++ 14 standard
 #include "pch.h"
+#include "ExampleStruc.h"
 #include <iostream>
 #include <string>
 #include <limits> 
 #include <math.h>
 #include <vector>
+#include <exception>
 
-struct ExampleStruct {
-    int a{};
-    std::string b{};
-    ExampleStruct() {}
-};
 
 void testIfStatement(int a, int b) {
     if (a > b) {
         std::cout << "a is bigger than b";
     } else {
         std::cout << "b is bigger than a";
+    }
+    std::cout << std::endl;
+}
+
+void testSwitchStatement(int option) {
+    switch (option)
+    {
+    case 0:
+        std::cout << "Running option 0";
+        break;
+    case 1:
+        std::cout << "Running option 1";
+        break;
+    default:
+        std::cout << "Running default option";
+        break; 
     }
     std::cout << std::endl;
 }
@@ -107,17 +120,26 @@ int main()
 
     // If testing 
     std::cout << "If statement test" << std::endl;
-    std::cout << "~~~~~~~~~~~~~~~~" << std::endl;
+    std::cout << "~~~~~~~~~~~~~~~~~" << std::endl;
 
     int noA = 78;
     int noB = 77;
     testIfStatement(noA, noB);
     noB = 79;
     testIfStatement(noA, noB);
-    noA = 2;
-    noB = 10;
+    std::cout << "~~~~~~~~~~~~~~~~~" << std::endl;
+
+    // Switch testing 
+    std::cout << "Switch statement test" << std::endl;
+    std::cout << "~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+    testSwitchStatement(-1);
+    testSwitchStatement(0);
+    testSwitchStatement(1);
+    std::cout << "~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 
     // Loop testing
+    noA = 2;
+    noB = 10;
     std::cout << "while loop test" << std::endl;
     std::cout << "~~~~~~~~~~~~~~~" << std::endl;
     testLoopWhile(noA, noB);
@@ -215,6 +237,20 @@ int main()
     std::unique_ptr<ExampleStruct> q = std::move(p);
     std::cout << "Is p a null :" << (p == nullptr) << std::endl;    
     std::cout << "Is q a null :" << (q == nullptr) << std::endl;
+
+    try {
+        int* notvalid = nullptr;
+        *notvalid = 15;
+    }
+    catch (const std::exception& ex) {
+        std::cout << "Standard Exception handling happened" << std::endl;
+    }
+    catch (const std::string& ex) {
+        std::cout << "Exception handling happened" << std::endl;
+    }
+    catch (...) {
+        std::cout << "All Exception handling happened" << std::endl;
+    }
 
     std::cout << "Done\n";
 }

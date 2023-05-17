@@ -16,6 +16,21 @@ namespace BasicExample
                 Console.WriteLine("b is bigger than a");
             }
         }
+        static void testSwitchStatement(int option)
+        {
+            switch (option)
+            {
+                case 0:
+                    Console.WriteLine("Running option 0");
+                    break;
+                case 1:
+                    Console.WriteLine("Running option 1");
+                    break;
+                default:
+                    Console.WriteLine("Running default option");
+                    break;
+            }
+        }
 
         static void testLoopWhile(int a, int b)
         {
@@ -102,6 +117,8 @@ namespace BasicExample
             Console.WriteLine("~~~~~~~~~~~~~~~~");
 
             // If testing
+            Console.WriteLine("If statement test");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~");
             int noA = 78;
             int noB = 77;
             testIfStatement(noA, noB);
@@ -109,6 +126,16 @@ namespace BasicExample
             testIfStatement(noA, noB);
             noA = 2;
             noB = 10;
+            Console.WriteLine("~~~~~~~~~~~~~~~~~");
+
+            // Switch testing 
+            Console.WriteLine("Switch statement test");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~");
+            testSwitchStatement(-1);
+            testSwitchStatement(0);
+            testSwitchStatement(1);
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~");
+
 
             // Loop testing
             Console.WriteLine("while loop test");
@@ -120,6 +147,7 @@ namespace BasicExample
             Console.WriteLine("for test");
             Console.WriteLine("~~~~~~~~");
             testForloop(noA, noB);
+            Console.WriteLine("~~~~~~~~~~~~~~~");
 
 
             Console.WriteLine("input test");
@@ -178,6 +206,20 @@ namespace BasicExample
             Console.WriteLine(exampleStruct.b);
             bool compare = exampleStruct.Equals(exampleStruct2);
             Console.WriteLine($"Comparing Results : {compare}");
+
+            try
+            {
+                // Have to throw one
+                throw new Exception("Just throwing one");
+            }
+            catch (Exception all)
+            {
+                Console.WriteLine("Caught all exceptions");
+            }
+            finally
+            {
+                Console.WriteLine("This will always run");
+            }
         }
 
     }

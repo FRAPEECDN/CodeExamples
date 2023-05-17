@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "CppUnitTest.h"
+#include "../BasicExample/ExampleStruc.h"
 #include <string>
 #include <memory>
 
@@ -7,14 +8,12 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTestExample
 {
-	struct ExampleStruct {
-		int a{};
-		std::string b{};
-		ExampleStruct() {}
-	};
-
 	int addExample(int a, int b) {
 		return a + b;
+	}
+
+	void exceptionGenerate() {
+		throw std::exception("Example exceptoin");
 	}
 
 
@@ -68,5 +67,11 @@ namespace UnitTestExample
 			Assert::AreEqual(p->a, 0);
 			Assert::AreEqual(p->b, expected);
 		}
+
+		TEST_METHOD(TestMethod6) {
+			auto func = [this] { exceptionGenerate(); };
+			Assert::ExpectException<std::exception>(func);
+		}
+
 	};
 }

@@ -17,6 +17,14 @@ public class Main {
         }
     }
 
+    static void testSwitchStatement(int option) {
+        switch (option) {
+            case 0 -> System.out.println("Running option 0");
+            case 1 -> System.out.println("Running option 1");
+            default -> System.out.println("Running default option");
+        }
+    }
+
     static void testLoopWhile(int a, int b) {
         int count = 0;
         while (a < b) {
@@ -106,10 +114,19 @@ public class Main {
         testIfStatement(noA, noB);
         noB = 79;
         testIfStatement(noA, noB);
-        noA = 2;
-        noB = 10;
+        System.out.println("~~~~~~~~~~~~~~~~~");
+
+        // Switch testing
+        System.out.println("Switch statement test");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~");
+        testSwitchStatement(-1);
+        testSwitchStatement(0);
+        testSwitchStatement(1);
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~");
 
         // Loop testing
+        noA = 2;
+        noB = 10;
         System.out.println("while loop test");
         System.out.println("~~~~~~~~~~~~~~~");
         testLoopWhile(noA, noB);
@@ -120,7 +137,7 @@ public class Main {
         System.out.println("~~~~~~~~");
         testForloop(noA, noB);
 
-        // Inputs - Processing
+        // Inputs - Processing (note exception handling with the catch)
         BufferedReader bfn = new BufferedReader(new InputStreamReader(System.in));
 
         int intInput = 0;

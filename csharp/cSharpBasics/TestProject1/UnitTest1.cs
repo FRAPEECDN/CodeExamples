@@ -10,6 +10,11 @@ namespace ExampleUnitTest
             return a + b;
         }
 
+        void generateException()
+        {
+            throw new Exception();
+        }
+
         [TestMethod]
         public void TestMethod1() 
         {
@@ -33,6 +38,13 @@ namespace ExampleUnitTest
             ExampleStruct example = new ExampleStruct();
             Assert.AreEqual(example.a, 0);
             Assert.AreEqual(example.b, "");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void TestMethod4()
+        {
+            generateException();
         }
     }
 }
